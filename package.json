@@ -1,6 +1,6 @@
 {
   "name": "create-typescript-application",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Create typescript nodejs application",
   "main": "index.js",
   "scripts": {
