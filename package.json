@@ -1,0 +1,26 @@
+{
+  "name": "create-typescript-application",
+  "version": "0.0.0",
+  "description": "Create typescript nodejs application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allisonmachado/create-typescript-application.git"
+  },
+  "keywords": [
+    "typescript",
+    "nodejs",
+    "create",
+    "template",
+    "bootstrap"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/allisonmachado/create-typescript-application/issues"
+  },
+  "homepage": "https://github.com/allisonmachado/create-typescript-application#readme"
+}
