@@ -1,2 +1,2 @@
-# create-typed-nodejs
+# create-typescript-application
 Create typescript nodejs application
