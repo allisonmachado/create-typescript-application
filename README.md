@@ -1,8 +1,6 @@
 # Create Typescript Application
 
-Create a new Typescript application for the NodeJS runtime.
-
-If something doesn’t work, please [file an issue](https://github.com/allisonmachado/create-typescript-application/issues/new).<br>
+Quickly create a new Typescript application for the NodeJS runtime.
 
 ## Quick Overview
 
@@ -10,21 +8,13 @@ If something doesn’t work, please [file an issue](https://github.com/allisonma
 npx create-typescript-application
 ```
 
-We recommend you run through npx so that you always uses the latest version.
+We recommend running through npx so that you always use the latest version.
 
 ## Creating an App
 
-This project is built for the following NodeJs version:
+**You’ll need to have NodeJS version ^16 (npm version ^8) on your local development machine**, and the created application will be targeted to the this NodeJS version as well.
 
-```bash
-$ node -v
-v16.15.0
-$ npm -v
-8.5.5
-```
-
-It will create a new directory with the app name inside the current folder.
-Inside that directory, it will generate the initial project structure:
+It will create a new directory with the chosen app name inside the current folder. The application project structure is like:
 
 ```
 my-new-app
@@ -40,7 +30,6 @@ my-new-app
     └── setupTests.js
 ```
 
-No configuration or complicated folder structures, only the files you need to start up your app.<br>
 Once the installation is done, you can open your project folder:
 
 ```sh
@@ -61,19 +50,17 @@ Run the tests
 npm test
 ```
 
-Builds the app
-
-```sh
-npm run build
-```
-
 ## What’s Included?
 
 Your environment will have everything you need to build a modern typescript application:
 
 - Typescript config with reasonable and updated defaults
-- Testing configuration with sinon, mocha and chai
-- Lint configuration via eslint
+- Testing configuration via sinon, mocha and chai
+- Lint configuration via eslint and typescript plugins
+
+## Issues
+
+If something doesn’t work, please [file an issue](https://github.com/allisonmachado/create-typescript-application/issues/new).<br>
 
 ## License
 
