@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/allisonmachado/create-typescript-application/compare/v1.0.1...v1.1.0) (2022-07-30)
+
+
+### Features
+
+* cross platform install and update documentation ([#12](https://github.com/allisonmachado/create-typescript-application/issues/12)) ([930b919](https://github.com/allisonmachado/create-typescript-application/commit/930b919679572c09386ada4fbabdcdf5d5162563))
+
 ## [1.0.1](https://github.com/allisonmachado/create-typescript-application/compare/v1.0.0...v1.0.1) (2022-07-29)
 
 
