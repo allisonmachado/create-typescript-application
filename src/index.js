@@ -20,8 +20,8 @@ prompt.get(properties, (err, result) => {
 
   shell.exec(`curl -L https://github.com/allisonmachado/typescript-nodejs-template/archive/refs/heads/master.tar.gz > ${result['app-name']}.tar.gz`);
   shell.exec(`tar -xzf ${result['app-name']}.tar.gz`);
-  shell.exec(`mv typescript-nodejs-template-master ${result['app-name']}`);
-  shell.exec(`rm ${result['app-name']}.tar.gz`);
+  shell.mv('typescript-nodejs-template-master', `${result['app-name']}`);
+  shell.rm(`${result['app-name']}.tar.gz`);
 
   return undefined;
 });
