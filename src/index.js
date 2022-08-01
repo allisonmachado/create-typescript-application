@@ -12,17 +12,20 @@ const properties = [
   },
 ];
 
-const isUnixSystem = () => false;
+const hasCurlInstalled = () => !!shell.which('curl');
+const hasWgetInstalled = () => !!shell.which('wget');
 
 prompt.start();
 
 prompt.get(properties, (_error, result) => {
   const chosenAppName = result['app-name'];
 
-  if (isUnixSystem()) {
+  if (hasWgetInstalled()) {
     shell.exec(`wget -qO- ${templateDownloadUrl} > ${chosenAppName}.tar.gz`);
-  } else {
+  } else if (hasCurlInstalled()) {
     shell.exec(`curl -L ${templateDownloadUrl} > ${chosenAppName}.tar.gz`);
+  } else {
+    throw new Error('Sorry, this script required that either curl or wget is installed in the system');
   }
   shell.exec(`tar -xzf ${chosenAppName}.tar.gz`);
   shell.mv('typescript-nodejs-template-master', `${chosenAppName}`);
