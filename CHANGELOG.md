@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/allisonmachado/create-typescript-application/compare/v1.1.0...v1.1.1) (2022-08-01)
+
+
+### Bug Fixes
+
+* make install work on Windows and Linux ([#18](https://github.com/allisonmachado/create-typescript-application/issues/18)) ([c94acd1](https://github.com/allisonmachado/create-typescript-application/commit/c94acd17f6f77545b99a48d85ba9a70eb9c26683))
+
 ## [1.1.0](https://github.com/allisonmachado/create-typescript-application/compare/v1.0.1...v1.1.0) (2022-07-30)
 
 
