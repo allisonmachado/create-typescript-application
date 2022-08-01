@@ -2,6 +2,8 @@
 const prompt = require('prompt');
 const shell = require('shelljs');
 
+const templateDownloadUrl = 'https://github.com/allisonmachado/typescript-nodejs-template/archive/refs/heads/master.tar.gz';
+
 const properties = [
   {
     name: 'app-name',
@@ -10,18 +12,21 @@ const properties = [
   },
 ];
 
+const isUnixSystem = () => false;
+
 prompt.start();
 
-prompt.get(properties, (err, result) => {
-  if (err) {
-    console.log(err);
-    return 1;
-  }
+prompt.get(properties, (_error, result) => {
+  const chosenAppName = result['app-name'];
 
-  shell.exec(`curl -L https://github.com/allisonmachado/typescript-nodejs-template/archive/refs/heads/master.tar.gz > ${result['app-name']}.tar.gz`);
-  shell.exec(`tar -xzf ${result['app-name']}.tar.gz`);
-  shell.mv('typescript-nodejs-template-master', `${result['app-name']}`);
-  shell.rm(`${result['app-name']}.tar.gz`);
+  if (isUnixSystem()) {
+    shell.exec(`wget -qO- ${templateDownloadUrl} > ${chosenAppName}.tar.gz`);
+  } else {
+    shell.exec(`curl -L ${templateDownloadUrl} > ${chosenAppName}.tar.gz`);
+  }
+  shell.exec(`tar -xzf ${chosenAppName}.tar.gz`);
+  shell.mv('typescript-nodejs-template-master', `${chosenAppName}`);
+  shell.rm(`${chosenAppName}.tar.gz`);
 
   return undefined;
 });
