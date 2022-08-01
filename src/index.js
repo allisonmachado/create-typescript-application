@@ -25,7 +25,7 @@ prompt.get(properties, (_error, result) => {
   } else if (hasCurlInstalled()) {
     shell.exec(`curl -L ${templateDownloadUrl} > ${chosenAppName}.tar.gz`);
   } else {
-    throw new Error('Sorry, this script required that either curl or wget is installed in the system');
+    throw new Error('Sorry, this script requires that either curl or wget is installed in the system');
   }
   shell.exec(`tar -xzf ${chosenAppName}.tar.gz`);
   shell.mv('typescript-nodejs-template-master', `${chosenAppName}`);
