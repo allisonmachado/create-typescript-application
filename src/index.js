@@ -31,12 +31,12 @@ prompt.get(properties, (_error, result) => {
 
   if (hasWgetInstalled()) {
     const command = `wget -qO- ${templateDownloadUrl} > ${chosenAppName}.tar.gz`;
-    logger.debug(`downloading via: ${command}`);
+    logger.debug(`downloading template: ${command}`);
 
     shell.exec(command);
   } else if (hasCurlInstalled()) {
     const command = `curl -s -L ${templateDownloadUrl} > ${chosenAppName}.tar.gz`;
-    logger.debug(`downloading via: ${command}`);
+    logger.debug(`downloading template: ${command}`);
 
     shell.exec(command);
   } else {
