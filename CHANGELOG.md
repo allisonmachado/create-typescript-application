@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/allisonmachado/create-typescript-application/compare/v1.1.1...v1.2.0) (2022-08-02)
+
+
+### Features
+
+* stablish application logging ([#22](https://github.com/allisonmachado/create-typescript-application/issues/22)) ([55692b8](https://github.com/allisonmachado/create-typescript-application/commit/55692b8a172717814db2bed705c392654dc4aee2))
+
 ## [1.1.1](https://github.com/allisonmachado/create-typescript-application/compare/v1.1.0...v1.1.1) (2022-08-01)
 
 
