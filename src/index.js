@@ -30,11 +30,15 @@ prompt.get(properties, (_error, result) => {
   logger.info(`chosen app name: ${chosenAppName}`);
 
   if (hasWgetInstalled()) {
-    logger.debug('downloading via wget');
-    shell.exec(`wget -qO- ${templateDownloadUrl} > ${chosenAppName}.tar.gz`);
+    const command = `wget -qO- ${templateDownloadUrl} > ${chosenAppName}.tar.gz`;
+    logger.debug(`downloading via: ${command}`);
+
+    shell.exec(command);
   } else if (hasCurlInstalled()) {
-    logger.debug('downloading via curl');
-    shell.exec(`curl -L ${templateDownloadUrl} > ${chosenAppName}.tar.gz`);
+    const command = `curl -s -L ${templateDownloadUrl} > ${chosenAppName}.tar.gz`;
+    logger.debug(`downloading via: ${command}`);
+
+    shell.exec(command);
   } else {
     logger.error('Sorry, this script requires that either curl or wget is installed in the system');
     process.exit(1);
