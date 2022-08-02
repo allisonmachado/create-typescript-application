@@ -8,7 +8,7 @@ const properties = [
   {
     name: 'app-name',
     validator: /^[a-z-]+$/,
-    warning: 'App name must be only lower case letters or dashes',
+    warning: 'App name must only contain lower case letters and dashes, e.g: "my-app"',
   },
 ];
 
