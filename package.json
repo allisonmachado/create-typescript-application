@@ -4,6 +4,7 @@
   "description": "Create typescript nodejs application",
   "main": "src/index.js",
   "bin": "src/index.js",
+  "type": "module",
   "scripts": {
     "lint": "eslint src",
     "start": "node src/index.js"

@@ -1,13 +1,14 @@
 #! /usr/bin/env node
-const prompt = require('prompt');
-const shell = require('shelljs');
-const winston = require('winston');
+import prompt from 'prompt';
+import shell from 'shelljs';
+import winston from 'winston';
 
 const templateDownloadUrl = 'https://github.com/allisonmachado/typescript-nodejs-template/archive/refs/heads/master.tar.gz';
 
 const properties = [
   {
-    name: 'app-name',
+    name: 'name',
+    message: 'app name',
     validator: /^[a-z-]+$/,
     warning: 'App name must only contain lower case letters and dashes, e.g: "my-app"',
   },
@@ -24,31 +25,27 @@ const hasWgetInstalled = () => !!shell.which('wget');
 
 prompt.start();
 
-prompt.get(properties, (_error, result) => {
-  const chosenAppName = result['app-name'];
+const { name } = await prompt.get(properties);
 
-  logger.info(`chosen app name: ${chosenAppName}`);
+logger.info(`chosen app name: ${name}`);
 
-  if (hasWgetInstalled()) {
-    const command = `wget -qO- ${templateDownloadUrl} > ${chosenAppName}.tar.gz`;
-    logger.debug(`downloading template: ${command}`);
+if (hasWgetInstalled()) {
+  const command = `wget -qO- ${templateDownloadUrl} > ${name}.tar.gz`;
+  logger.debug(`downloading template: ${command}`);
 
-    shell.exec(command);
-  } else if (hasCurlInstalled()) {
-    const command = `curl -s -L ${templateDownloadUrl} > ${chosenAppName}.tar.gz`;
-    logger.debug(`downloading template: ${command}`);
+  shell.exec(command);
+} else if (hasCurlInstalled()) {
+  const command = `curl -s -L ${templateDownloadUrl} > ${name}.tar.gz`;
+  logger.debug(`downloading template: ${command}`);
 
-    shell.exec(command);
-  } else {
-    logger.error('Sorry, this script requires that either curl or wget is installed in the system');
-    process.exit(1);
-  }
+  shell.exec(command);
+} else {
+  logger.error('Sorry, this script requires that either curl or wget is installed in the system');
+  process.exit(1);
+}
 
-  shell.exec(`tar -xzf ${chosenAppName}.tar.gz`);
-  shell.mv('typescript-nodejs-template-master', `${chosenAppName}`);
-  shell.rm(`${chosenAppName}.tar.gz`);
+shell.exec(`tar -xzf ${name}.tar.gz`);
+shell.mv('typescript-nodejs-template-master', `${name}`);
+shell.rm(`${name}.tar.gz`);
 
-  logger.info(`app ${chosenAppName} initialized successfully!`);
-
-  return undefined;
-});
+logger.info(`app ${name} initialized successfully!`);
