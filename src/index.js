@@ -48,4 +48,9 @@ shell.exec(`tar -xzf ${name}.tar.gz`);
 shell.mv('typescript-nodejs-template-master', `${name}`);
 shell.rm(`${name}.tar.gz`);
 
+shell.rm(`./${name}/CHANGELOG.md`);
+shell.rm('-rf', `./${name}/.github`);
+
+shell.ShellString(`# ${name}`).to(`./${name}/README.md`);
+
 logger.info(`app ${name} initialized successfully!`);
