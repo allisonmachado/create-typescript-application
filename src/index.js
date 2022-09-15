@@ -1,4 +1,5 @@
 #! /usr/bin/env node
+import fs from 'fs';
 import prompt from 'prompt';
 import shell from 'shelljs';
 import winston from 'winston';
@@ -52,5 +53,13 @@ shell.rm(`./${name}/CHANGELOG.md`);
 shell.rm('-rf', `./${name}/.github`);
 
 shell.ShellString(`# ${name}`).to(`./${name}/README.md`);
+
+const createdPackage = JSON.parse(fs.readFileSync(`./${name}/package.json`, 'utf8'));
+
+createdPackage.name = name;
+createdPackage.description = '';
+createdPackage.version = '0.0.1';
+
+fs.writeFileSync(`./${name}/package.json`, JSON.stringify(createdPackage, null, 2));
 
 logger.info(`app ${name} initialized successfully!`);
