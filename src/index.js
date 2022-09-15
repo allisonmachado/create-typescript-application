@@ -34,25 +34,29 @@ if (hasWgetInstalled()) {
   const command = `wget -qO- ${templateDownloadUrl} > ${name}.tar.gz`;
   logger.debug(`downloading template: ${command}`);
 
-  shell.exec(command);
+  shell.exec(command, { silent: true });
 } else if (hasCurlInstalled()) {
   const command = `curl -s -L ${templateDownloadUrl} > ${name}.tar.gz`;
   logger.debug(`downloading template: ${command}`);
 
-  shell.exec(command);
+  shell.exec(command, { silent: true });
 } else {
   logger.error('Sorry, this script requires that either curl or wget is installed in the system');
   process.exit(1);
 }
 
-shell.exec(`tar -xzf ${name}.tar.gz`);
+shell.exec(`tar -xzf ${name}.tar.gz`, { silent: true });
 shell.mv('typescript-nodejs-template-master', `${name}`);
 shell.rm(`${name}.tar.gz`);
+
+logger.debug('removing unnecessary template files');
 
 shell.rm(`./${name}/CHANGELOG.md`);
 shell.rm('-rf', `./${name}/.github`);
 
 shell.ShellString(`# ${name}`).to(`./${name}/README.md`);
+
+logger.debug('updating new package');
 
 const createdPackage = JSON.parse(fs.readFileSync(`./${name}/package.json`, 'utf8'));
 
@@ -61,5 +65,11 @@ createdPackage.description = '';
 createdPackage.version = '0.0.1';
 
 fs.writeFileSync(`./${name}/package.json`, JSON.stringify(createdPackage, null, 2));
+
+logger.debug('installing dependencies and building new project');
+
+shell.cd(`./${name}`);
+shell.exec('npm install', { silent: true });
+shell.exec('npm run build', { silent: true });
 
 logger.info(`app ${name} initialized successfully!`);
