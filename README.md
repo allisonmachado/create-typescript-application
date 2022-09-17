@@ -1,6 +1,6 @@
 # Create Typescript Application
 
-Quickly create a new Typescript application for the NodeJS runtime.
+Quickly create a new [Typescript][1] application for the [NodeJS][2] runtime. :rocket:
 
 ## Quick Overview
 
@@ -8,13 +8,13 @@ Quickly create a new Typescript application for the NodeJS runtime.
 npx create-typescript-application
 ```
 
-We recommend running through npx so that you always use the latest version.
+We recommend running through [npx][8] so that you always use the latest version.
 
 ## Creating an App
 
-**You’ll need to have NodeJS version ^16 (npm version ^8) on your local development machine**, and the created application will be targeted to the this NodeJS version as well.
+Executing `npx create-typescript-application` creates a new directory with the chosen app name inside the current folder and install the basic template dependencies via npm. 
 
-It will create a new directory with the chosen app name inside the current folder. The application project structure is like:
+The new application project structure looks like:
 
 ```
 my-new-app
@@ -28,6 +28,8 @@ my-new-app
     └── setupTests.js
 └── test
     └── setupTests.js
+└── node_modules
+    └── ...
 ```
 
 Once the installation is done, you can open your project folder:
@@ -36,15 +38,13 @@ Once the installation is done, you can open your project folder:
 cd my-new-app
 ```
 
-Inside the newly created project, you can run some built-in commands:
+Inside the newly created project you can run your new application:
 
 ```sh
-npm install
-npm run build
-npm start
+npm run local
 ```
 
-Run the tests
+You have a basic test setup with [Mocha][3]:
 
 ```sh
 npm test
@@ -52,16 +52,31 @@ npm test
 
 ## What’s Included?
 
-Your environment will have everything you need to build a modern typescript application:
+Your new project will have everything you need to start creating a modern application. :sunglasses:
 
-- Typescript config with reasonable and updated defaults
-- Testing configuration via sinon, mocha and chai
-- Lint configuration via eslint and typescript plugins
+The main features are:
+
+- Typescript configuration with reasonable defaults;
+- Auxiliary npm scripts to build, test and run your application locally;
+- [VsCode][4] integration that allows you to debug your code and tests with breakpoints;
+- Testing configuration via [Sinon][7], [Mocha][3] and [Chai][6];
+- Lint configuration via [eslint][5] and typescript plugins.
 
 ## Issues
 
-If something doesn’t work, please [file an issue](https://github.com/allisonmachado/create-typescript-application/issues/new).<br>
+If something doesn’t work, please [file an issue][9].<br>
 
 ## License
 
-Create Typescript Application is open source software [licensed as MIT](https://github.com/allisonmachado/create-typescript-application/blob/main/LICENSE).
+Create Typescript Application is open source software [licensed as MIT][10].
+
+[1]: https://www.typescriptlang.org/
+[2]: https://nodejs.org/en/
+[3]: https://mochajs.org/
+[4]: https://code.visualstudio.com/
+[5]: https://eslint.org/
+[6]: https://www.chaijs.com/
+[7]: https://sinonjs.org/
+[8]: https://www.npmjs.com/package/npx
+[9]: https://github.com/allisonmachado/create-typescript-application/issues/new
+[10]: https://github.com/allisonmachado/create-typescript-application/blob/main/LICENSE
