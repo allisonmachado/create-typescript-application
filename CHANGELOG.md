@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.2](https://github.com/allisonmachado/create-typescript-application/compare/v1.3.1...v1.3.2) (2022-11-09)
+
+
+### Bug Fixes
+
+* update documentation ([#30](https://github.com/allisonmachado/create-typescript-application/issues/30)) ([1b943fe](https://github.com/allisonmachado/create-typescript-application/commit/1b943fe319a9239fe8317323090637a8bb4c2f71))
+
 ## [1.3.1](https://github.com/allisonmachado/create-typescript-application/compare/v1.3.0...v1.3.1) (2022-09-17)
 
 
