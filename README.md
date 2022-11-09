@@ -58,11 +58,11 @@ Your new project will have everything you need to start creating a modern applic
   - `npm run test:dev`
 - [VsCode][4] integration that allows you to debug your code and tests with breakpoints;
 - Testing configuration via [Sinon][7], [Mocha][3] and [Chai][6];
-- Lint configuration via [eslint][5] and typescript plugins.
+- Lint configuration via [ESLint][5] and typescript plugins.
 
 ## Issues
 
-If something doesn’t work, please [file an issue][9].<br>
+If something doesn’t work, please [open an issue][9].<br>
 
 ## License
 
